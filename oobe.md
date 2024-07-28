@@ -1,6 +1,6 @@
 # Out of Box Experience
 
-![openbox](_media/radio/box.jpg ':size=378x504')
+![Opened Box](_media/radio/box.jpg ':size=378x504')
 
 > Plastic removed for clarity
 
@@ -47,6 +47,7 @@ Provides a basic overview of the radio and its features.
 * SMA female connector
 * Labeled as "400-480 MHz / GPS Antenna"
 * GPS capability advertised as "optional"
+* Hand and sausage fingers not included
 
 ## Charger
 
