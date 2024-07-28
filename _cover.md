@@ -11,5 +11,4 @@
 - Easy to swap between M17 and DMR
 - Commercially available
 
-[GitHub](https://github.com/docsifyjs/docsify/)
 [Get Started](#introduction)
