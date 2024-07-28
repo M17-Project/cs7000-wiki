@@ -109,7 +109,7 @@ You might find it in your Downloads folder like below:
 
 ![DfuSeDemo_6](_media/dfuse_6.png)
 
-16. DfuSeDemo should show a green bar at the bottom, indication the firmware file loaded correctly.
+16. DfuSeDemo should show a green bar at the bottom, indicating the firmware file loaded correctly.
 
 Like this:
 
@@ -118,7 +118,7 @@ Like this:
 17. Click on the `Upgrade` button.
 
 18. You will receive another dialog box warning you that the radio is in DFU
-mode and DfuseDemo cannot determine if the file is correct for the device. This
+mode and DfuSeDemo cannot determine if the file is correct for the device. This
 is normal, click on `Yes` to proceed.
 
 Click on `Yes`
