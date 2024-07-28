@@ -1,3 +1,5 @@
-# DMR Digital Mode on the CS7000-M17
+# Introduction
+
+## DMR Digital Mode and the CS7000-M17
 
 > Introduction
