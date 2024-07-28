@@ -54,6 +54,11 @@ Provides a basic overview of the radio and its features.
 
 * Standard drop-in charger, capable of charging a battery detached from radio
 * US power adapter pictured
+* LED states:
+  * Green - Battery Charged
+  * Red - Battery Charging
+  * Flashing Red (Slow) - Power available, no battery present
+  * Flashing Red (Fast) - Battery or Charger Error
 
 ## Belt Clip
 
