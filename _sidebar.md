@@ -4,7 +4,7 @@
 * [Out of Box Experience](oobe.md)
 * M17
   * [Introduction](m17/m17.md)
-  * [Flashing M17](m17/flashing_m17.md)
+  * [Flashing OpenRTX](m17/flashing_openrtx.md)
   * [Operating OpenRTX](m17/operating.md)
   * [Tips and Tricks](m17/tips_and_tricks.md)
 * DMR
