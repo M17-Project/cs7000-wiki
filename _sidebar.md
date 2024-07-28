@@ -6,3 +6,4 @@
 * [Operating OpenRTX](operating.md)
 * [Tips and Tricks](tips_and_tricks.md)
 * [Flashing to DMR](flashing_dmr.md)
+* [Author Attribution](attribution.md)
