@@ -24,6 +24,7 @@ Provides a basic overview of the radio and its features.
 * UHF 400-512 MHz DMR radio with capabilities for M17 digital mode
 * IP67 waterproof/dustproof rating
 * Large color display (1.8 inches, 160 x 128 pixels)
+* GPS advertised as optional
 
 ## Battery
 
@@ -43,6 +44,7 @@ Provides a basic overview of the radio and its features.
 
 ![Antenna Detail](_media/radio/antenna_2.jpg ':size=378x504')
 
+* SMA female connector
 * Labeled as "400-480 MHz / GPS Antenna"
 * GPS capability advertised as "optional"
 
