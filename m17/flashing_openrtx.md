@@ -3,7 +3,7 @@
 Flashing the CS7000-M17 is a fairly easy process. Be patient and take your time
 through the whole process. Read all instructions before attempting to flash
 your radio. This document is provided as a guide and is not a replacement for
-support by the manufacturer, Connect Systems Inc. 
+support by the manufacturer, Connect Systems Inc.
 
 Through the process, references to hardware buttons will be made. For clarity,
 the hardware buttons referenced in this document are pictured below.
@@ -35,7 +35,7 @@ Instructions for flashing your radio with [Windows](#windows), [Mac](#mac), and 
 
 ## Windows
 
-### Flashing software: 
+### Flashing software:
 
 DfuSeDemo (version 3.0.6), available from Connect Systems' Software page
 
@@ -79,7 +79,7 @@ You should see this dialog box open:
 
 9. Click on `Yes` to remove read protection.
   * This is a required step before you can flash the OpenRTX firmware to the radio
-  
+
   | :exclamation: Disabling the read protection on the radio may take a minute or so. `BE PATIENT` |
   |------------------------------------------------------------------------------------------------|
 
@@ -155,5 +155,41 @@ the OpenRTX firmware, and how to start using the M17 digital radio mode!
 :exclamation: TBD
 
 ## Linux
+
+There are are several Linux tools available for flashing the STM32 device. This section documents one command line tool, *dfu-util*, and you won't need to install any drivers. It's simple to install on Debian-based systems: `sudo apt install dfu-util`. Just like the Windows example, there are two fundamental steps to flashing your radio from the DMR firmware to the Open RTX firmware:
+
+1. Remove the read protection from the DMR firmware.
+2. Install the Open RTX firmware.
+
+First, download the latest OpenRTX firmware from the CSI website and open a shell and cd to where the firmware is.
+
+Do a `dfu-util --help` for a look at possible actions.
+
+Turn your radio off and install the USB cable and plug it into your computer. Hold down SK1 and turn the radio on. The screen should be blank.
+
+To make sure your ready to begin, type `dfu-util --list` and you should see some copyright notices and then something like:
+
+```bash
+Found DFU: [0483:df11] ver=2200, devnum=12, cfg=1, intf=0, path="1-1", alt=3, name="@Device Feature/0xFFFF0000/01*004 e", serial="006B518F5253"
+Found DFU: [0483:df11] ver=2200, devnum=12, cfg=1, intf=0, path="1-1", alt=2, name="@OTP Memory /0x1FFF7800/01*512 e,01*016 e", serial="006B518F5253"
+Found DFU: [0483:df11] ver=2200, devnum=12, cfg=1, intf=0, path="1-1", alt=1, name="@Option Bytes  /0x1FFFC000/01*016 e", serial="006B518F5253"
+Found DFU: [0483:df11] ver=2200, devnum=12, cfg=1, intf=0, path="1-1", alt=0, name="@Internal Flash /0x08000000/04*016Kg,01*064Kg,07*128Kg", serial="006B518F5253"
+```
+
+You're now ready to remove the read protection from the DMR firmware:
+
+```bash
+dfu-util -s 0x1FFFC000:16:unprotect:force
+```
+
+There may be some minor complaints, but there shouldn't be any errors. Notice here that we are using address and length info from the **Option Bytes** line from the listing above as parameters for this command.
+
+We are now ready to flash OpenRTX:
+
+```bash
+dfu-util -a 0 -D openrtx_cs7000.dfu
+```
+
+Again there might be some minor complaints, but there should be a final report of success. Turn off the radio and unplug the USB cable. You are done!
 
 :exclamation: TBD
