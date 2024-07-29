@@ -156,6 +156,8 @@ the OpenRTX firmware, and how to start using the M17 digital radio mode!
 
 ## Linux
 
+### Flashing from DMR to Open RTX
+
 There are are several Linux tools available for flashing the STM32 device. This section documents one command line tool, *dfu-util*, and you won't need to install any drivers. It's simple to install on Debian-based systems: `sudo apt install dfu-util`. Just like the Windows example, there are two fundamental steps to flashing your radio from the DMR firmware to the Open RTX firmware:
 
 1. Remove the read protection from the DMR firmware.
@@ -165,11 +167,11 @@ First, download the latest OpenRTX firmware from the CSI website and open a shel
 
 Do a `dfu-util --help` for a look at possible actions.
 
-Turn your radio off and install the USB cable and plug it into your computer. Hold down SK1 and turn the radio on. The screen should be blank.
+Turn your radio off and install the USB cable and plug it into your computer. Start the boot loader: Hold down SK1 and turn the radio on. The screen should be blank.
 
 To make sure your ready to begin, type `dfu-util --list` and you should see some copyright notices and then something like:
 
-```bash
+```
 Found DFU: [0483:df11] ver=2200, devnum=12, cfg=1, intf=0, path="1-1", alt=3, name="@Device Feature/0xFFFF0000/01*004 e", serial="006B518F5253"
 Found DFU: [0483:df11] ver=2200, devnum=12, cfg=1, intf=0, path="1-1", alt=2, name="@OTP Memory /0x1FFF7800/01*512 e,01*016 e", serial="006B518F5253"
 Found DFU: [0483:df11] ver=2200, devnum=12, cfg=1, intf=0, path="1-1", alt=1, name="@Option Bytes  /0x1FFFC000/01*016 e", serial="006B518F5253"
@@ -178,18 +180,61 @@ Found DFU: [0483:df11] ver=2200, devnum=12, cfg=1, intf=0, path="1-1", alt=0, na
 
 You're now ready to remove the read protection from the DMR firmware:
 
-```bash
+```
 dfu-util -s 0x1FFFC000:16:unprotect:force
 ```
 
-There may be some minor complaints, but there shouldn't be any errors. Notice here that we are using address and length info from the **Option Bytes** line from the listing above as parameters for this command.
+There may be some minor complaints as the utility establishes the connection. Notice here that we are using address and length info from the **Option Bytes** line from the listing above as parameters for this command.
 
 We are now ready to flash OpenRTX:
 
-```bash
+```
 dfu-util -a 0 -D openrtx_cs7000.dfu
 ```
 
-Again there might be some minor complaints, but there should be a final report of success. Turn off the radio and unplug the USB cable. You are done!
+Again there might be some minor complaints as the utility connects to the radio, but the flashing should take less than a minute. Here, the `-a 0` is used to specify the **Internal Flash** section by using its **alt** value.  After some initial copyright notices, you should see something like ths:
+
+```
+Match vendor ID from file: 0483
+Match product ID from file: df11
+Multiple alternate interfaces for DfuSe file
+Opening DFU capable USB device...
+Device ID 0483:df11
+Device DFU version 011a
+Claiming USB DFU Interface...
+Setting Alternate Interface #0 ...
+Determining device status...
+DFU state(10) = dfuERROR, status(10) = Device's firmware is corrupt. It cannot return to run-time (non-DFU) operations
+Clearing status
+Determining device status...
+DFU state(2) = dfuIDLE, status(0) = No error condition is present
+DFU mode device DFU version 011a
+Device returned transfer size 2048
+DfuSe interface name: "Internal Flash  "
+File contains 1 DFU images
+Parsing DFU image 1
+Target name: ST...
+Image for alternate setting 0, (1 elements, total size = 211800)
+Setting Alternate Interface #0 ...
+Parsing element 1, address = 0x08000000, size = 211792
+Erase   	[=========================] 100%       211792 bytes
+Erase    done.
+Download	[=========================] 100%       211792 bytes
+Download done.
+```
+
+Turn off the radio and unplug the USB cable. You are done!
+
+### Reinstalling, upgrading or downgrading Open RTX
+
+Open a shell tool and cd to where your desired *.dfu firmware file is located. Plug in your radio and start the boot loader. Then:
+
+```
+dfu-util -a 0 -D <new dfu filename>
+```
+
+Turn off the radio and unplug USB cable, you're done!
+
+### Flashing from Open RTX to DMR
 
 :exclamation: TBD
