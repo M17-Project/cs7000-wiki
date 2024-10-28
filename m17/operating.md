@@ -49,7 +49,7 @@ From top to bottom, moving left to right:
 ## Macro Menu
 
 The Macro Menu in OpenRTX is used for the most commonly used functions on your
-radio. 
+radio.
 
 To access the Macro Menu, press the SK1 button on the left side of the radio.
 By default, holding the SK1 button for more than one second will 'latch' the
@@ -167,7 +167,7 @@ the `OK` button.
 
 ![Callsign](_media/callsign.png)
 
-5. Use the number keys `1` through `9` to enter your callsign. The input style
+5. Use the number keys `1` through `9` and `0` to enter your callsign. The input style
 is similar to the old cellphone "T9" input method, multiple presses of a single
 key will advance to the next letter for that key. For example, pressing the `2`
 key multiple times will advance through `A` `B` `C` and `2`. If you need to
@@ -188,5 +188,22 @@ arrow key to erase/backspace.
 7. Press the `BACK` button three times to return to the M17 Idle Screen.
 
 ## Changing Destinations
+
+To change the destination address, start by pressing the `#` key. Then
+it's the same keystrokes as setting your callsign. You may need some
+special characters for your destination address:
+
+- The foreslash, `/`, and the dash, `-` are obtained with one or two presses the `* DEL` key.
+- The space character is obtained with two quick presses on the `0` key.
+
+With this, you can enter a destination of a specific reflector module,
+which requires two of these special characters, dash and space, *e.g.*,
+
+`M17-M17 C`
+
+As above, if you make a mistake, the up or down key will erase the last
+character entered. If you change your mind, just press the `BACK` key
+and you will return to the main display without changing the destination
+address. Once you're happy with your destination, press the `OK` key.
 
 ## Additional Settings
