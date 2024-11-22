@@ -158,6 +158,8 @@ the OpenRTX firmware, and how to start using the M17 digital radio mode!
 
 ### Flashing from DMR to Open RTX
 
+First, make sure the user that is going to execute the flashing command is in the dialout group. Do a `getent group dialout`. If the user is not listed, do a `sudo adduser <username> dialout`, where `<username>` is the login name of the user. After this, you can verify with another `getent` command.
+
 There are are several Linux tools available for flashing the STM32 device. This section documents one command line tool, *dfu-util*, and you won't need to install any drivers. It's simple to install on Debian-based systems: `sudo apt install dfu-util`. Just like the Windows example, there are two fundamental steps to flashing your radio from the DMR firmware to the Open RTX firmware:
 
 1. Remove the read protection from the DMR firmware.
