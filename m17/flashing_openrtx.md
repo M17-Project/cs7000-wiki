@@ -29,7 +29,7 @@ You will also need the following:
 CSI provides a software page with the OpenRTX firmware, `Openrtx_CS7000.dfu`.
 Flashing software for Windows, `DfuSeDemo V3.0.6` is also provided there.
 
-[Connect Systems Software Page for CS7000-M17](https://www.connectsystems.com/products/top/radios/CS7000_M17_SOFTWARE.htm)
+[Connect Systems Software Page for CS7000-M17](https://www.connectsystems.com/amateur-software/CS7000_M17_software.html)
 
 Instructions for flashing your radio with [Windows](#windows), [Mac](#mac), and [Linux](#linux) are below.
 
